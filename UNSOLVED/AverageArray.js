@@ -17,19 +17,15 @@ average:   [3, 4, 5, 6]
 
 //********************TODO */
 function avgArray(arr) {
-    const numsInSubArr = arr[0].length;
-    const resultArr = new Array(numsInSubArr).fill([]);
+    const resultArr = new Array(arr[0].length).fill([]);
 
     for (let i = 0; i < arr.length; i++) {
-        let currentArr = arr[i];
-        for (let j = 0; j < numsInSubArr; j++) {
-            let currentNum = currentArr[j];
-            let arrToPush = resultArr[j];
-            arrToPush.push(currentNum);
+        for (let j = 0; j < arr[0].length; j++) {
+            console.log(resultArr[j]);
+            resultArr[j].push(arr[i][j]);
+            console.log(resultArr[j]);
         }
     }
-
-    return resultArr;
 }
 
 console.log(
