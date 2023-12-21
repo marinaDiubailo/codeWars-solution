@@ -17,15 +17,15 @@ average:   [3, 4, 5, 6]
 
 //********************TODO */
 function avgArray(arr) {
-    const resultArr = new Array(arr[0].length).fill([]);
+    //const resultArr = new Array(arr[0].length).fill([]);
+    const resultArr = [];
 
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr[0].length; j++) {
-            console.log(resultArr[j]);
-            resultArr[j].push(arr[i][j]);
-            console.log(resultArr[j]);
+            resultArr.push(arr[i][j]);
         }
     }
+    console.log(resultArr);
 }
 
 console.log(
