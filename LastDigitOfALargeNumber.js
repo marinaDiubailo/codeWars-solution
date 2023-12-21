@@ -6,7 +6,7 @@ For example, the last decimal digit of 9 ^ 7 is 9, since 9 ^ 7 = 4782969.
 You may assume that the input will always be valid.
 */
 
-var lastDigit = function (str1, str2) {
+var lastDigit1 = function (str1, str2) {
     const map = {
         0: [0],
         1: [1],
@@ -29,16 +29,12 @@ var lastDigit = function (str1, str2) {
     return map[lastA][index];
 };
 
-var lastDigit1 = function (str1, str2) {
+var lastDigit = function (str1, str2) {
     return +str2 === 0
         ? 1
-        : Math.pow(+str1.slice(-1), (+str2.slice(-2) % 4) + 4) % 10;
+        : Math.pow(+str1.slice(-1), (+str2.slice(-2) % 4) + 4) % 100;
 };
 
-console.log(
-    lastDigit(
-        '1606938044258990275541962092341162602522202993782792835301376',
-        '2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376',
-    ),
-);
-console.log(6 % 4);
+console.log(lastDigit('2', '2'));
+console.log(lastDigit('2', '2'));
+console.log(2 ** 7);
