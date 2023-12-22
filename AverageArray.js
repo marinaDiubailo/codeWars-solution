@@ -15,24 +15,27 @@ Examples
 average:   [3, 4, 5, 6]
  */
 
-//********************TODO */
 function avgArray(arr) {
-    //const resultArr = new Array(arr[0].length).fill([]);
-    const resultArr = [];
+    const result = [];
+    const columnsLength = arr.length;
+    let startCol = 0;
+    let endCol = arr[0].length - 1;
 
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr[0].length; j++) {
-            resultArr.push(arr[i][j]);
+    while (startCol <= endCol) {
+        let accumulator = 0;
+        for (let i = 0; i < columnsLength; i++) {
+            let num = arr[i][startCol];
+            accumulator += num;
         }
+        result.push(accumulator / columnsLength);
+        startCol++;
     }
-    console.log(resultArr);
+    return result;
 }
 
 console.log(
     avgArray([
-        [2, 3, 9, 10, 7],
-        [12, 6, 89, 45, 3],
-        [9, 12, 56, 10, 34],
-        [67, 23, 1, 88, 34],
+        [2, 3, 9],
+        [12, 6, 89],
     ]),
 );
