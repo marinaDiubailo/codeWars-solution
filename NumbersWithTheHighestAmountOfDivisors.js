@@ -47,13 +47,35 @@ function procArrInt(arr) {
         }
         return result.length;
     }
-    const isPrime = getDivisors(num) === 2;
 
     let totalPrime = 0;
-    let totalDivisors;
+
     let obj = {};
 
-    for (let i = 0; i < arrLength; i++) {}
+    for (let i = 0; i < arrLength; i++) {
+        let divisorsCount = getDivisors(arr[i]);
+        if (divisorsCount === 2) totalPrime++;
+        if (!obj[divisorsCount]) {
+            obj[divisorsCount] = [arr[i]];
+        } else {
+            obj[divisorsCount] = obj[divisorsCount].concat([arr[i]]) || [
+                arr[i],
+            ];
+        }
+    }
 
-    return [arrLength, totalPrime, [totalDivisors, arrTotalDivisors]];
+    const res = Object.keys(obj).sort((a, b) => a - b);
+
+    const maxDivisorsCount = Number(res[res.length - 1]);
+
+    const arrTotalDivisors = obj[res[res.length - 1]].sort((a, b) => a - b);
+
+    return [arrLength, totalPrime, [maxDivisorsCount, arrTotalDivisors]];
 }
+
+console.log(
+    procArrInt([
+        66, 36, 49, 40, 73, 12, 77, 78, 76, 8, 50, 20, 85, 22, 24, 68, 26, 59,
+        92, 93, 30,
+    ]),
+);
