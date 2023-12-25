@@ -41,9 +41,8 @@ function divNum(a, b) {
             ];
         }
     }
-    console.log(obj);
+
     const max = Math.max(...Object.keys(obj));
-    console.log(max);
 
     return obj[max][0];
 }
